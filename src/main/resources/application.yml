@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/dropzonedb
+    username: root
+    password: ssafy
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -26,7 +26,9 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer configure() {
         return (web) -> web.ignoring()
-                .requestMatchers(new AntPathRequestMatcher("/static/**"));
+                .requestMatchers(new AntPathRequestMatcher("/swagger-ui/**"),
+                        new AntPathRequestMatcher("/v3/api-docs/**")
+                        );
     }
 
     // 특정 HTTP 요청에 대한 웹 기반 보안 구성
@@ -40,7 +42,7 @@ public class WebSecurityConfig {
                                 new AntPathRequestMatcher("/user")
                         ).permitAll()
                         .anyRequest().authenticated())
-                .csrf(AbstractHttpConfigurer::disable) //csrf 공격 비활성화
+                .csrf(AbstractHttpConfigurer::disable) //csrf 공격 비활성화 - 실습을 위해서
                 .build();
 
     }
